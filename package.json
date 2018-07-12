@@ -1,0 +1,32 @@
+{
+  "name": "TaskManager",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "description": "TaskManager - Projects and Tasks SPA with simple back-end",
+  "scripts": {
+    "api:start": "node api",
+    "api:start-simulate-errors": "node api simulate-errors",
+    "front:dev": "parcel frontend/index.html -d frontend/dist --cache-dir frontend/.cache -p 8080 --open",
+    "front:clean": "rimraf frontend/dist",
+    "front:build": "npm run front:clean && parcel build frontend/index.html --cache-dir frontend/.cache -d frontend/dist",
+    "front:prod": "npm run front:build && node frontend/server.js"
+  },
+  "author": "You",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-history-api-fallback": "^2.2.1",
+    "nedb": "^1.8.0",
+    "underscore": "^1.9.1",
+    "yup": "^0.21.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.4",
+    "rimraf": "^2.6.2"
+  }
+}

@@ -1,0 +1,375 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgba(0,0,0,.8);
+  font-size: 13px;
+}
+/*-----------------------horizontalMenu---------------------------------------*/
+#horizontalMenu {
+  width: 100%;
+  min-width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+}
+#horizontalMenu div {
+  margin: 0 20px;
+}
+input[type="search"] {
+  width: 200px;
+}
+.photoProfile {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url('http://placehold.it/400x200');
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.small {
+  width: 30px;
+  height: 30px;
+}
+/*----------------------------------------------*/
+.underHorizontalMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*-------------------verticalMenu---------------------------------------------*/
+#verticalMenu {
+  /*position: fixed;*/
+  padding: 15px;
+  background: white;
+  width: 150px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+}
+#verticalMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /*border-top: 1px solid rgba(0,0,0,.3);*/
+}
+#verticalMenu li {
+  margin: 12px 0 0 0px;
+}
+#verticalMenu a {
+  text-decoration: none;
+  display: flex;
+  padding: 5px;
+  position: relative;
+  transition: .3s linear;
+}
+/*#verticalMenu a:after {
+  content:"\f18e";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 5px;
+  color: white;
+  transition: .2s linear;
+}*/
+#verticalMenu a:hover {
+  background: #80C8A0;
+  color: white;
+}
+#verticalMenu li:last-child {
+  border-top: 1px solid rgba(0,0,0,.3);
+}
+/*----------------------------------------------------------*/
+#content {
+  width: 80%;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+  margin: 20px;
+}
+#dashBoard {
+  display: flex;
+  flex-direction: column;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.project,
+.titleProject,
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0;
+  margin: 0 20px;
+  border-bottom: 1px solid LightGray;
+}
+.titleProject {
+  color: gray;
+  border-bottom: 1px solid rgba(0,0,0,.6);
+}
+.project:hover,
+.task:hover {
+  background-color: WhiteSmoke;
+}
+.completed{
+  background-color: Gainsboro;
+  text-decoration: line-through;
+}
+.new {
+  //display: none;
+}
+.open {
+  font-weight: bold;
+}
+/*div.hr {
+  height: 1px;
+  width: 95%;
+  background-color: LightGray;
+  margin: 0 2.5%;
+}*/
+/*-------------------------*/
+#progress {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius:5px;
+    height: 10px;
+    border: 1px solid silver;
+
+}
+#bar {
+    height: 10px;
+    background-color: DodgerBlue;
+    border-radius:4px;
+    position: relative;
+}
+.barText {
+  position: absolute;
+  left: 15px;
+  top: -15px;
+}
+.progress,
+.titleStatus {
+  margin: 0 10px;
+  width: 70px;
+}
+.nameProject,
+.titleName,
+.nameTask {
+  padding: 5px;
+  width: 300px;
+  margin: 0 10px;
+}
+.nameProject {
+  margin-right: 100px;
+}
+.nameProject,
+.nameTask {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nameTask {
+  font-size: 16px;
+}
+.titlePriority {
+  width: 70px;
+  text-align: center;
+}
+.titleDeadline {
+  margin: 0 20px;
+}
+.priorityProject {
+  border-radius: 6px;
+  color: white;
+  padding: 3px 6px;
+
+}
+.high {
+    background-color: red;
+}
+.normal {
+    background-color: Goldenrod;
+}
+.low {
+    background-color: #80C8A0;
+}
+.assignName,
+.titleAssign {
+  margin: 0 5px 0 20px;
+  width: 65px;
+  text-align: right;
+}
+.titleAssign {
+  width: 100px;
+  margin: 0 5px 0 20px;
+}
+.deadlineProject {
+  margin: 0 20px;
+  width: 125px;
+  text-align: center;
+}
+.deadlineProject input {
+  width: 100%;
+}
+.createSubtask,
+.taskStatus {
+  border-radius: 50%;
+  -moz-border-radius: 50%; /*firefox*/
+  -webkit-border-radius: 50%;
+  box-shadow: 0px 1px 1px 1px #bbb;
+  -moz-box-shadow: 0px 1px 1px 1px #bbb; /*firefox*/
+  -webkit-box-shadow: 0px 1px 1px 1px #bbb;
+  border: 2px solid #419BF9;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  margin: 0 20px;
+  padding: 3px;
+}
+.createSubtask a {
+  position: relative;
+  z-index: 1;
+  top: -11px;
+  font-size: 30px;
+  color: #419BF9;
+  text-decoration: none;
+}
+.taskArrow {
+  margin: 0 5px 0 20px;
+  text-decoration: none;
+}
+.inProgressIcon {
+  border: 2px solid gold;
+  background-color: gold;
+}
+.inProgressIcon::after,
+.completedIcon::after{
+  position: relative;
+  color: white;
+  top: 3px;
+  left: 5px;
+}
+.inProgressIcon::after {
+  content: "▶";
+}
+.openIcon {
+  border: 2px solid LightGray;
+  background-color: LightGray;
+}
+.completedIcon {
+  border: 2px solid limeGreen;
+  background-color: limeGreen;
+}
+.completedIcon::after{
+  content: "✓";
+}
+/* .inProgressIcon a,
+.newIcon a,
+.completeIcon a {
+  color: white;
+  position: relative;
+  padding-left:5px;
+  top: 3px;
+} */
+/*-------------------------------------------------*/
+a.tip {
+    text-decoration: none;
+}
+a.tip:hover {
+    position: relative;
+}
+a.tip span {
+    display: none;
+    text-align: center;
+}
+.createSubtask:hover a.tip span,
+.taskStatus:hover a.tip span {
+    border: #c0c0c0 1px dotted;
+    padding: 5px;
+    display: block;
+    z-index: 100;
+    background: #f0f0f0;
+    left: -50px;
+    margin: 10px;
+    width: 90px;
+    position: absolute;
+    top: 20px;
+}
+/*-----------------------------------------------*/
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked ~ ul,
+input[type="checkbox"]:checked ~ li>div>label>span.close,
+input[type="checkbox"]:not(:checked) ~ li>div>label>span.open{
+  display:none;
+}
+/*-----------------------------------------------*/
+.newTaskInput {
+  width: 95%;
+  height: 30px;
+  font-size: 16px;
+}
+.newTaskInput:placeholder {
+  color: silver;
+}
+#createTask {
+  padding: 20px 30px;
+  min-width: 500px;
+  width: 50%;
+  border: 1px solid black;
+}
+.titleNewProject {
+  font-size: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+/* input,
+select {
+
+  border: 1px solid gray;
+} */
+/* input,
+select>option {
+  height: 30px;
+  margin: 5px 0;
+} */
+input[placeholder="Name of task"] {
+  width: 100%;
+}
+select {
+
+}
+select option[value]{
+  color: white;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid white;
+  border-radius:15px;
+}
+select option[value]:checked {
+  border: 1px solid black;
+  font-weight: bold;
+  background-color: rgba(0,0,0,.2);
+}
+select option:hover{
+  font-weight: bold;
+}
+option[value="0"]:not(:checked) ~ input#invite {
+  display: none;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70px;
+  margin: 0 20px;
+}
