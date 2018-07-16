@@ -105,17 +105,24 @@ ul {
   margin: 0 20px;
   border-bottom: 1px solid LightGray;
 }
+.project {
+ background-color: rgba(255, 228, 196,0.6);
+}
+.project:hover {
+  background-color: NavajoWhite;
+}
+.task:hover {
+  background-color: WhiteSmoke;
+}
 .titleProject {
   color: gray;
   border-bottom: 1px solid rgba(0,0,0,.6);
 }
-.project:hover,
-.task:hover {
-  background-color: WhiteSmoke;
-}
+
 .completed{
   background-color: Gainsboro;
   text-decoration: line-through;
+  font-style: italic;
 }
 .new {
   //display: none;
@@ -161,9 +168,12 @@ ul {
   width: 300px;
   margin: 0 10px;
 }
-.nameProject {
-  margin-right: 100px;
+.titleName {
+  width: 270px;
 }
+/* .nameProject {
+  margin-right: 100px;
+} */
 .nameProject,
 .nameTask {
   font-size: 18px;
@@ -181,18 +191,22 @@ ul {
 .titleDeadline {
   margin: 0 20px;
 }
+div.select,
 .priorityProject {
   border-radius: 6px;
   color: white;
-  padding: 3px 6px;
+  /* padding: 3px 6px; */
 
 }
+select[name="priority"] option[value="high"],
 .high {
     background-color: red;
 }
+select[name="priority"] option[value="normal"],
 .normal {
     background-color: Goldenrod;
 }
+select[name="priority"] option[value="low"],
 .low {
     background-color: #80C8A0;
 }
@@ -200,15 +214,15 @@ ul {
 .titleAssign {
   margin: 0 5px 0 20px;
   width: 65px;
-  text-align: right;
+  text-align: center;
 }
 .titleAssign {
   width: 100px;
-  margin: 0 5px 0 20px;
+  margin: 0 5px;
 }
 .deadlineProject {
   margin: 0 20px;
-  width: 125px;
+  width: 100px;
   text-align: center;
 }
 .deadlineProject input {
@@ -229,6 +243,9 @@ ul {
   margin: 0 20px;
   padding: 3px;
 }
+.taskStatus:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 .createSubtask a {
   position: relative;
   z-index: 1;
@@ -241,29 +258,31 @@ ul {
   margin: 0 5px 0 20px;
   text-decoration: none;
 }
-.inProgressIcon {
+.iconinProgress {
   border: 2px solid gold;
   background-color: gold;
 }
-.inProgressIcon::after,
-.completedIcon::after{
+.iconinProgress::after,
+.iconcompleted::after{
   position: relative;
   color: white;
-  top: 3px;
+  /* top: 3px;
+  left: 5px; */
+  top: -28px;
   left: 5px;
 }
-.inProgressIcon::after {
+.iconinProgress::after {
   content: "▶";
 }
-.openIcon {
+.iconopen {
   border: 2px solid LightGray;
   background-color: LightGray;
 }
-.completedIcon {
+.iconcompleted {
   border: 2px solid limeGreen;
   background-color: limeGreen;
 }
-.completedIcon::after{
+.iconcompleted::after{
   content: "✓";
 }
 /* .inProgressIcon a,
@@ -302,9 +321,14 @@ a.tip span {
 input[type="checkbox"] {
   display: none;
 }
-input[type="checkbox"]:checked ~ ul,
+/* input[type="checkbox"]:checked ~ ul,
 input[type="checkbox"]:checked ~ li>div>label>span.close,
 input[type="checkbox"]:not(:checked) ~ li>div>label>span.open{
+  display:none;
+} */
+input[type="checkbox"]:checked ~ li>div,
+input[type="checkbox"]:checked ~ label>span.close,
+input[type="checkbox"]:not(:checked) ~ label>span.open {
   display:none;
 }
 /*-----------------------------------------------*/
@@ -338,12 +362,30 @@ select>option {
   height: 30px;
   margin: 5px 0;
 } */
+
+/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+input[type="date"] {
+  /* background-color: rgba(0,0,0,0);
+  border:none; */
+}
+
 input[placeholder="Name of task"] {
   width: 100%;
 }
-select {
-
+select:disabled {
+  -webkit-appearance: none;
+   -moz-appearance: none;
+   text-indent: 1px;
+   text-overflow: '';
 }
+/*
 select option[value]{
   color: white;
   text-align: center;
@@ -355,21 +397,54 @@ select option[value]:checked {
   border: 1px solid black;
   font-weight: bold;
   background-color: rgba(0,0,0,.2);
-}
+} */
 select option:hover{
   font-weight: bold;
 }
-option[value="0"]:not(:checked) ~ input#invite {
+/* option[value="0"]:not(:checked) ~ input#invite {
   display: none;
-}
-textarea {
+} */
+/* textarea {
   width: 100%;
   height: 100px;
-}
+} */
 .buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* width: 70px;
+  margin: 0 20px; */
+}
+
+
+.taskStatus select {
+  width: 30px;
+  height: 30px;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+select[name="status"] {
+  background-color: rgba(0,0,0,0);
+}
+select[name="priority"] {
   width: 70px;
-  margin: 0 20px;
+  text-align-last: center;
+  border: none;
+  color: white;
+}
+select[name="status"]:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+input[type="text"]:disabled,
+input[type="date"]:disabled,
+select[name="assignto"]:disabled {
+  background-color: rgba(0,0,0,0);
+  border: none;
 }
