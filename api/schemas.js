@@ -7,7 +7,7 @@ module.exports = {
     tasks: yup.array().of(yup.object().shape())
   }),
   NewTask: yup.object().shape({
-    name: yup.string().required('is required'),
+    name: yup.string(),
     assignto: yup.object().shape({
         name: yup.string(),
         email: yup.string()
@@ -17,7 +17,7 @@ module.exports = {
     status: yup.string()
   }),
   ExistingProject: yup.object().shape({
-    name: yup.string().required('Project Name is required'),
+    name: yup.string(),
     // owner: yup.object().shape({
     //   name: yup.string('name must not be empty'),
     //   email: yup.string().email()
