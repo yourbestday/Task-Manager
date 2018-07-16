@@ -15,7 +15,7 @@ const cors = require('cors');
 const app = express();
 const api = express.Router();
 
-api.use(cors());
+app.use(cors());
 api.use(bodyParser.json());
 
 if (process.argv.indexOf('simulate-errors') !== -1) {
@@ -29,7 +29,6 @@ if (process.argv.indexOf('simulate-errors') !== -1) {
 }
 
 api.get('/', (req, res, next) => {
-  console.log('in get');
   db.find({}, (err, projects) => {
     if (err) {
       return next(err);
@@ -110,12 +109,13 @@ api.patch('/:id', (req, res, next) => {
 });
 // add new task to project with _id by method PATCH
 api.patch('/tasks/:id', (req, res, next) => {
-  Schemas.ExistingProject.validate(req.body, {stripUnknown: true}, (err, data) => {
+
+  Schemas.NewTask.validate(req.body, {stripUnknown: true}, (err, data) => {
     if (err) {
       return next(err);
     }
 
-    db.update({_id: req.params.id}, {$push: data}, {}, (err, numUpdated) => {
+    db.update({_id: req.params.id}, {$push: {tasks: data}}, {}, (err, numUpdated) => {
       if (err) {
 
         return next(err);
@@ -133,6 +133,7 @@ api.patch('/tasks/:id', (req, res, next) => {
         res.sendStatus(404);
       }
     });
+    console.log('in patch after push task');
   });
 });
 
